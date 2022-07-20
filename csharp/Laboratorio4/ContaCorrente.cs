@@ -28,10 +28,15 @@ public class ContaCorrente
         saldo = saldo - valor;
     }
 
-    public ContaCorrente(decimal valor, Correntista umCorrentista)
+    public ContaCorrente(decimal saldo, Correntista umCorrentista)
     {
-        saldo = valor;
+        this.saldo = saldo;
         DataCriacao = DateTime.Now;
         correntista = umCorrentista;
+    }
+
+    public ContaCorrente(string nomeCorrentista, string cpfCorrentista)
+    : this(0,new Correntista {Nome=nomeCorrentista,Cpf=cpfCorrentista})
+    {
     }
 }

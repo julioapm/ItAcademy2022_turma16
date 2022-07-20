@@ -8,3 +8,5 @@ conta1.Depositar(100);
 conta1.Sacar(50);
 Console.WriteLine(conta1.Saldo);
 Console.WriteLine(conta1.DataCriacao.ToShortDateString());
+
+ContaCorrente conta3 = new ContaCorrente("Mary Doe", "09876543212");
