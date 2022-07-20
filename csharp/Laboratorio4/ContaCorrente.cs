@@ -1,5 +1,6 @@
 public class ContaCorrente
 {
+    private Correntista correntista;
     private decimal saldo;
     public decimal Saldo
     {
@@ -13,6 +14,8 @@ public class ContaCorrente
     */
     //public decimal Saldo => saldo;
     public DateTime DataCriacao { get; }
+    
+    public Correntista Correntista => correntista;
 
     public void Depositar(decimal valor)
     {
@@ -25,9 +28,10 @@ public class ContaCorrente
         saldo = saldo - valor;
     }
 
-    public ContaCorrente(decimal valor)
+    public ContaCorrente(decimal valor, Correntista umCorrentista)
     {
         saldo = valor;
         DataCriacao = DateTime.Now;
+        correntista = umCorrentista;
     }
 }
