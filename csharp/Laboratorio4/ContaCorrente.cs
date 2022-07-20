@@ -12,6 +12,7 @@ public class ContaCorrente
     }
     */
     //public decimal Saldo => saldo;
+    public DateTime DataCriacao { get; }
 
     public void Depositar(decimal valor)
     {
@@ -27,5 +28,6 @@ public class ContaCorrente
     public ContaCorrente(decimal valor)
     {
         saldo = valor;
+        DataCriacao = DateTime.Now;
     }
 }
