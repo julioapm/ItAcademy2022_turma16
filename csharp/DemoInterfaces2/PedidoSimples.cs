@@ -9,6 +9,6 @@ public class PedidoSimples : IPedido
     }
     public override string ToString()
     {
-        return $"Data = {DataCompra.ToShortDateString()} Valor = {Valor}";
+        return $"Data = {DataCompra.ToShortDateString()} Valor = {Valor:C}";
     }
 }
