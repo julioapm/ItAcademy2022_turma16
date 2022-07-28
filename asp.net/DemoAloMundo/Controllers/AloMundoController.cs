@@ -26,4 +26,18 @@ public class AloMundoController : Controller
         return HtmlEncoder.Default.Encode($"Alô {nome}, você tem {idade} anos!");
     }
 
+    //GET .../AloMundo/SaudacaoHTML
+    public IActionResult SaudacaoHTML()
+    {
+        ViewData["Title"] = "Saudação em HTML";
+        return View();
+    }
+
+    //GET .../AloMundo/SaudacaoHTMLComNome?nome={nome}
+    public IActionResult SaudacaoHTMLComNome(string nome)
+    {
+        ViewData["Title"] = "Saudação em HTML";
+        ViewBag.Nome = nome;
+        return View();
+    }
 }
