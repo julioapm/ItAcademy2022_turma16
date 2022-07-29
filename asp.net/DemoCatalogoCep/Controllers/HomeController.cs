@@ -18,7 +18,38 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        var ceps = _cepService.ConsultaTodos();
+        return View(ceps);
+    }
+
+    //GET .../Home/Create
+    public IActionResult Create()
+    {
         return View();
+    }
+
+    //POST .../Home/Create
+    [HttpPost]
+    public IActionResult Create(CepViewModel novoCep)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(novoCep);
+        }
+        _cepService.Cadastrar(novoCep);
+        return RedirectToAction(nameof(Index));
+    }
+
+    //GET .../Home/Search/{id}
+    public IActionResult Search(string id)
+    {
+        ViewData["Id"] = id;
+        CepViewModel? resultado = null;
+        if (!String.IsNullOrEmpty(id))
+        {
+            resultado = _cepService.ConsultaPorCep(id);
+        }
+        return View(resultado);
     }
 
     public IActionResult Privacy()

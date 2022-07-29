@@ -1,8 +1,29 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<CepViewModel>
+@{
+    ViewData["Title"] = "CEPs";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Listagem de CEPs:</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>CEP</th>
+            <th>Logradouro</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Cep</td>
+                <td>@item.Logradouro</td>
+                <td>@item.Bairro</td>
+                <td>@item.Cidade</td>
+                <td>@item.Estado</td>
+            </tr>
+        }
+    </tbody>
+</table>
