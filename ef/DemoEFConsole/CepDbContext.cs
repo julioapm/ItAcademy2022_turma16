@@ -17,5 +17,6 @@ public class CepDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite($"Data Source={CaminhoDoBD}");
+        optionsBuilder.EnableSensitiveDataLogging().LogTo(Console.WriteLine);
     }
 }
