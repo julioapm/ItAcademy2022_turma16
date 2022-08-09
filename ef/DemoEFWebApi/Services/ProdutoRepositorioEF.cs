@@ -12,8 +12,18 @@ public class ProdutoRepositorioEF : IProdutoRepositorio
         _contexto = contexto;
     }
 
+    public async Task<Produto?> ConsultarPorIdAsync(int id)
+    {
+        var produto = await _contexto.Produtos.AsNoTracking()
+                                              .Where(p => p.Id == id)
+                                              .FirstOrDefaultAsync();
+        return produto;
+    }
+
     public async Task<IEnumerable<Produto>> ConsultarTodosAsync()
     {
-        return await _contexto.Produtos.OrderBy(p => p.Id).ToListAsync();
+        return await _contexto.Produtos.AsNoTracking()
+                                       .OrderBy(p => p.Id)
+                                       .ToListAsync();
     }
 }
