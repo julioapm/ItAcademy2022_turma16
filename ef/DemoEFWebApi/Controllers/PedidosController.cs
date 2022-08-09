@@ -19,10 +19,12 @@ public class PedidosController : ControllerBase
     }
 
     [HttpGet("{id}")] //GET api/v1/Pedidos/{id}
-    public async Task<ActionResult<Pedido>> GetPorId(int id)
+    public async Task<ActionResult<PedidoDTO>> GetPorId(int id)
     {
         var pedido = await _pedidosRepositorio.ConsultarPorIdAsync(id);
         if (pedido == null) return NotFound();
-        else return pedido;
+        else return PedidoDTO.DeEntidadeParaDTO(pedido);
     }
+
+    
 }

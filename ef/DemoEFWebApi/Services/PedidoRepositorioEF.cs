@@ -14,8 +14,12 @@ public class PedidoRepositorioEF : IPedidoRepositorio
 
     public async Task<Pedido?> ConsultarPorIdAsync(int id)
     {
+        //eager loading
         var pedido = await _contexto.Pedidos
                                 .Where(p => p.Id == id)
+                                .Include(p => p.Cliente)
+                                .Include(p => p.Itens)
+                                .ThenInclude(i => i.Produto)
                                 .FirstOrDefaultAsync();
         return pedido;
     }
