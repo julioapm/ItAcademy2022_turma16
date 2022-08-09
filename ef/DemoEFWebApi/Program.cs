@@ -10,6 +10,7 @@ builder.Services.AddDbContext<LojinhaContext>(opcoes => {
     opcoes.EnableSensitiveDataLogging().LogTo(Console.WriteLine);
 });
 builder.Services.AddScoped<IProdutoRepositorio, ProdutoRepositorioEF>();
+builder.Services.AddScoped<IPedidoRepositorio, PedidoRepositorioEF>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
