@@ -14,8 +14,7 @@ public class ProdutoRepositorioEF : IProdutoRepositorio
 
     public async Task<Produto?> ConsultarPorIdAsync(int id)
     {
-        var produto = await _contexto.Produtos.AsNoTracking()
-                                              .Where(p => p.Id == id)
+        var produto = await _contexto.Produtos.Where(p => p.Id == id)
                                               .FirstOrDefaultAsync();
         return produto;
     }

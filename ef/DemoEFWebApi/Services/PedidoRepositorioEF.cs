@@ -12,6 +12,13 @@ public class PedidoRepositorioEF : IPedidoRepositorio
         _contexto = contexto;
     }
 
+    public async Task<Pedido> AdicionarAsync(Pedido pedido)
+    {
+        await _contexto.Pedidos.AddAsync(pedido);
+        await _contexto.SaveChangesAsync();
+        return pedido;
+    }
+
     public async Task<Pedido?> ConsultarPorIdAsync(int id)
     {
         //eager loading
