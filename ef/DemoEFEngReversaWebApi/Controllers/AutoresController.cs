@@ -20,7 +20,7 @@ namespace DemoEFEngReversaWebApi.Controllers
             _context = context;
         }
 
-        // GET: api/Livros
+        // GET: api/Autores
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Autor>>> GetAutores()
         {
@@ -31,7 +31,7 @@ namespace DemoEFEngReversaWebApi.Controllers
             return await _context.Autores.ToListAsync();
         }
 
-        // GET: api/Livros/5
+        // GET: api/Autores/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Autor>> GetAutor(int id)
         {
@@ -49,7 +49,7 @@ namespace DemoEFEngReversaWebApi.Controllers
             return autor;
         }
 
-        // PUT: api/Livros/5
+        // PUT: api/Autores/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAutor(int id, Autor autor)
@@ -80,7 +80,7 @@ namespace DemoEFEngReversaWebApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Livros
+        // POST: api/Autores
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Autor>> PostAutor(Autor autor)
@@ -95,7 +95,7 @@ namespace DemoEFEngReversaWebApi.Controllers
             return CreatedAtAction("GetAutor", new { id = autor.Id }, autor);
         }
 
-        // DELETE: api/Livros/5
+        // DELETE: api/Autores/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAutor(int id)
         {
