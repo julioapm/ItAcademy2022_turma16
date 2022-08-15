@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 using DemoEFWebApi.Models;
 using DemoEFWebApi.Services;
 using DemoEFWebApi.DTOs;
 
 namespace DemoEFWebApi.Controllers;
 
+[EnableCors("LiberaGeral")]
 [ApiController]
 [Route("api/v1/[controller]")]
 public class PedidosController : ControllerBase

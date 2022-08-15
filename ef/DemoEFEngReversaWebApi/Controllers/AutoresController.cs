@@ -85,13 +85,16 @@ namespace DemoEFEngReversaWebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Autor>> PostAutor(Autor autor)
         {
-          if (_context.Autores == null)
-          {
-              return Problem("Entity set 'BibliotecaContext.Autores'  is null.");
-          }
+            if (_context.Autores == null)
+            {
+                return Problem("Entity set 'BibliotecaContext.Autores'  is null.");
+            }
+            foreach(var livro in autor.Livros)
+            {
+                var livroExistente = await _context.Livros.FirstOrDefaultAsync(l => l.Id == livro.Id);
+            }
             _context.Autores.Add(autor);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetAutor", new { id = autor.Id }, autor);
         }
 
