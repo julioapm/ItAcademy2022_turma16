@@ -6,7 +6,14 @@ class Pontao {
     x = 1;
     y = 1;
 }
+interface UmPonto {
+    readonly x: number;
+    readonly y: number;
+} 
 const p: Ponto = new Pontao();
+p.x = 10;
+const p2: UmPonto = new Ponto();
+p2.x = 10;
 console.log(p);
 
 class Pessoa {
@@ -20,3 +27,4 @@ class Empregado {
 }
 const alguem: Pessoa = new Empregado();
 console.log(alguem);
+
