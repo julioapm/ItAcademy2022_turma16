@@ -1,0 +1,20 @@
+{
+    "_moedas": [
+        {
+            "_valor": 1,
+            "_nome": "Um Real"
+        },
+        {
+            "_valor": 1,
+            "_nome": "Um Real"
+        },
+        {
+            "_valor": 0.5,
+            "_nome": "50 centavos"
+        },
+        {
+            "_valor": 0.25,
+            "_nome": "25 centavos"
+        }
+    ]
+}
